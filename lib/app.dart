@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'details_screen.dart';
+import 'package:watches/home_screen.dart';
 
 class App extends StatelessWidget {
   @override
@@ -11,7 +10,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DetailsScreen(),
+      home: HomeScreen(),
     );
   }
 }
