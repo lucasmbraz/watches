@@ -43,9 +43,12 @@ class DetailsScreen extends StatelessWidget {
 
   Widget _image() => AspectRatio(
         aspectRatio: 375 / 500,
-        child: Image.asset(
-          watch.image,
-          fit: BoxFit.cover,
+        child: Hero(
+          tag: watch.name,
+          child: Image.asset(
+            watch.coverImage,
+            fit: BoxFit.cover,
+          ),
         ),
       );
 
