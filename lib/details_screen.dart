@@ -20,11 +20,11 @@ class DetailsScreen extends StatelessWidget {
         children: [
           _image(),
           SizedBox(height: 36),
-          _name(),
+          _name(context),
           SizedBox(height: 12),
-          _price(),
+          _price(context),
           SizedBox(height: 24),
-          _description(),
+          _description(context),
           SizedBox(height: 36),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 28),
@@ -49,19 +49,36 @@ class DetailsScreen extends StatelessWidget {
         ),
       );
 
-  Widget _name() => Padding(
+  Widget _name(BuildContext context) => Padding(
         padding: const EdgeInsets.only(left: 28, right: 72),
-        child: Text(watch.name),
+        child: Text(
+          watch.name.toUpperCase(),
+          style: Theme.of(context).textTheme.headline5.copyWith(
+                fontWeight: FontWeight.w500,
+                color: Color(0xFF020102),
+                letterSpacing: 3,
+              ),
+        ),
       );
 
-  Widget _price() => Padding(
+  Widget _price(BuildContext context) => Padding(
         padding: const EdgeInsets.only(left: 28, right: 72),
-        child: Text('\$${watch.price}'),
+        child: Text(
+          '\$${watch.price}',
+          style: Theme.of(context).textTheme.headline5.copyWith(
+                fontSize: 22,
+                fontWeight: FontWeight.w300,
+                color: Color(0xFF020102),
+              ),
+        ),
       );
 
-  Widget _description() => Padding(
+  Widget _description(BuildContext context) => Padding(
         padding: const EdgeInsets.only(left: 28, right: 72),
-        child: Text(watch.description),
+        child: Text(
+          watch.description,
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
       );
 
   Widget _buyButton() => Expanded(
