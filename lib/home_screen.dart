@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:watches/details_screen.dart';
 import 'package:watches/model/watch.dart';
 
 import 'model/dummy_data.dart';
@@ -30,11 +31,22 @@ class HomeScreen extends StatelessWidget {
         ),
       );
 
-  Widget _carouselItem(BuildContext context, Watch watch) => Stack(
-        children: [
-          _carouselImage(watch),
-          _watchDetails(context, watch),
-        ],
+  Widget _carouselItem(BuildContext context, Watch watch) => InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailsScreen(
+                      watch: watch,
+                    )),
+          );
+        },
+        child: Stack(
+          children: [
+            _carouselImage(watch),
+            _watchDetails(context, watch),
+          ],
+        ),
       );
 
   Widget _carouselImage(Watch watch) => Container(
