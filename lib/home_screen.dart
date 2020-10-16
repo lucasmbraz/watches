@@ -111,10 +111,17 @@ class HomeScreen extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => DetailsScreen(
-                      watch: watch,
-                    )),
+            PageRouteBuilder(
+              pageBuilder: (_, __, ___) => DetailsScreen(watch: watch),
+              barrierColor: Colors.white,
+              transitionDuration: Duration(milliseconds: 600),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: CurvedAnimation(parent: animation, curve: Interval(0.65, 1, curve: Curves.easeIn)),
+                  child: child,
+                );
+              },
+            ),
           );
         },
         child: Stack(
